@@ -10,6 +10,12 @@ class App extends Component {
   state = {
     items: [],
     loading: false,
+
+    async componentDidMount() {
+      try {
+        // const {data} = await
+      } catch (error) {}
+    },
   };
 
   render() {
