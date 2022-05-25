@@ -69,7 +69,7 @@ class App extends Component {
   };
 
   render() {
-    const { loading, items, isModal, modalData } = this.state;
+    const { loading, items, isModal, modalData, search } = this.state;
     const { tags, largeImageURL } = modalData;
     const { getSearch, onLoadMore, openModal, closeModal } = this;
     return (
@@ -77,6 +77,9 @@ class App extends Component {
         <Searchbar onSubmit={getSearch} />
         {Boolean(items.length) && (
           <ImageGallery items={items} open={openModal} />
+        )}
+        {items.length === 0 && search && (
+          <p>I am sorry. We didn't find {search}</p>
         )}
         {loading && (
           <div>
