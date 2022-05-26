@@ -4,11 +4,16 @@ import s from './imageGallery.module.css';
 import ImageGalleryItem from './ImageGalleryItem';
 
 const ImageGallery = ({ items, open }) => {
-  return (
-    <ul className={s.gallery}>
-      <ImageGalleryItem items={items} open={open} />
-    </ul>
-  );
+  const elements = items.map(({ id, tags, webformatURL, largeImageURL }) => (
+    <li
+      key={id}
+      className={s.item}
+      onClick={() => open({ tags, largeImageURL })}
+    >
+      <ImageGalleryItem tags={tags} webformatURL={webformatURL} />
+    </li>
+  ));
+  return <ul className={s.gallery}>{elements}</ul>;
 };
 
 export default ImageGallery;
