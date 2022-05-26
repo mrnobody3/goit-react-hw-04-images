@@ -5,13 +5,13 @@ import ImageGalleryItem from './ImageGalleryItem';
 
 const ImageGallery = ({ items, open }) => {
   const elements = items.map(({ id, tags, webformatURL, largeImageURL }) => (
-    <li
+    <ImageGalleryItem
       key={id}
-      className={s.item}
-      onClick={() => open({ tags, largeImageURL })}
-    >
-      <ImageGalleryItem tags={tags} webformatURL={webformatURL} />
-    </li>
+      tags={tags}
+      webformatURL={webformatURL}
+      largeImageURL={largeImageURL}
+      open={open}
+    />
   ));
   return <ul className={s.gallery}>{elements}</ul>;
 };
